@@ -1,0 +1,6 @@
+{
+    "refund_id":"@refundId",
+    "refund_no":"321", 
+    "amount":"0", 
+    "status":"SUCCESS"
+}

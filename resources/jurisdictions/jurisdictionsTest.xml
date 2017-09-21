@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- ================================================================= Licensed 
+	Materials - Property of IBM WebSphere Commerce (C) Copyright IBM Corp. 2009, 
+	2010 All Rights Reserved. US Government Users Restricted Rights - Use, duplication 
+	or disclosure restricted by GSA ADP Schedule Contract with IBM Corp. ================================================================= -->
+<Scenario name="jurisdictionsTest">
+	<Test name="getAllProvinceTest">
+		<Datablock name="jurstBody">
+			<Input>
+			</Input>
+			<Output>			
+				<Parameter name="name" value="中国" />
+				<Parameter name="countryCode" value="CN" />	
+				<Parameter name="name1" value="北京市" />	
+				<Parameter name="name2" value="天津市" />		
+				<Parameter name="name3" value="河北省" />
+				<Parameter name="name4" value="山西省" />
+				<Parameter name="name5" value="内蒙古自治区" />	
+				<Parameter name="name6" value="辽宁省" />	
+				<Parameter name="name7" value="吉林省" />		
+				<Parameter name="name8" value="黑龙江省" />
+				<Parameter name="name9" value="上海市" />
+				<Parameter name="name10" value="江苏省" />	
+				<Parameter name="name11" value="浙江省" />	
+				<Parameter name="name12" value="安徽省" />		
+				<Parameter name="name13" value="福建省" />
+				<Parameter name="name14" value="江西省" />
+				<Parameter name="name15" value="山东省" />	
+				<Parameter name="name16" value="河南省" />	
+				<Parameter name="name17" value="湖北省" />		
+				<Parameter name="name18" value="湖南省" />
+				<Parameter name="name19" value="广东省" />
+				<Parameter name="name20" value="广西壮族自治区" />	
+				<Parameter name="name21" value="海南省" />	
+				<Parameter name="name22" value="重庆市" />		
+				<Parameter name="name23" value="四川省" />
+				<Parameter name="name24" value="贵州省" />
+				<Parameter name="name25" value="云南省" />	
+				<Parameter name="name26" value="西藏自治区" />	
+				<Parameter name="name27" value="陕西省" />		
+				<Parameter name="name28" value="甘肃省" />
+				<Parameter name="name29" value="青海省" />
+				<Parameter name="name30" value="宁夏回族自治区" />	
+				<Parameter name="name31" value="新疆维吾尔自治区" />		
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="getSubProvinceCityTest">
+		<Datablock name="jurstBody">
+			<Input>
+				<Parameter name="code" value="110000" />
+			</Input>
+			<Output>			
+			    <Parameter name="code" value="110100" />
+				<Parameter name="name" value="北京市" />	
+				<Parameter name="name1" value="东城区" />	
+				<Parameter name="name2" value="西城区" />		
+				<Parameter name="name3" value="朝阳区" />
+				<Parameter name="name4" value="丰台区" />
+				<Parameter name="name5" value="石景山区" />	
+				<Parameter name="name6" value="海淀区" />	
+				<Parameter name="name7" value="门头沟区" />		
+				<Parameter name="name8" value="房山区" />
+				<Parameter name="name9" value="通州区" />
+				<Parameter name="name10" value="顺义区" />	
+				<Parameter name="name11" value="昌平区" />	
+				<Parameter name="name12" value="大兴区" />		
+				<Parameter name="name13" value="怀柔区" />
+				<Parameter name="name14" value="平谷区" />
+				<Parameter name="name15" value="密云县" />	
+				<Parameter name="name16" value="延庆县" />			
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="getSubProvinceTest">
+		<Datablock name="jurstBody">
+			<Input>
+				<Parameter name="code" value="320000" />
+			</Input>
+			<Output>			
+				<Parameter name="name" value="江苏省" />	
+				<Parameter name="name1" value="南京市" />	
+				<Parameter name="name2" value="无锡市" />		
+				<Parameter name="name3" value="徐州市" />
+				<Parameter name="name4" value="常州市" />
+				<Parameter name="name5" value="苏州市" />	
+				<Parameter name="name6" value="南通市" />	
+				<Parameter name="name7" value="连云港市" />		
+				<Parameter name="name8" value="淮安市" />
+				<Parameter name="name9" value="盐城市" />
+				<Parameter name="name10" value="扬州市" />	
+				<Parameter name="name11" value="镇江市" />	
+				<Parameter name="name12" value="泰州市" />		
+				<Parameter name="name13" value="宿迁市" />
+				
+				<Parameter name="cityName1" value="市辖区" />	
+				<Parameter name="cityName2" value="玄武区" />		
+				<Parameter name="cityName3" value="秦淮区" />
+				<Parameter name="cityName4" value="建邺区" />
+				<Parameter name="cityName5" value="鼓楼区" />	
+				<Parameter name="cityName6" value="浦口区" />	
+				<Parameter name="cityName7" value="栖霞区" />		
+				<Parameter name="cityName8" value="雨花台区" />
+				<Parameter name="cityName9" value="江宁区" />
+				<Parameter name="cityName10" value="六合区" />	
+				<Parameter name="cityName11" value="溧水区" />	
+				<Parameter name="cityName12" value="高淳区" />						
+			</Output>
+		</Datablock>
+	</Test>
+</Scenario>
+
+

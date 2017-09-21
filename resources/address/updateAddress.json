@@ -1,0 +1,14 @@
+{
+  "isDefault": false,
+  "stateCode": "110000",
+  "stateName": "\u5317\u4EAC\u5E02",
+  "cityCode": "110100",
+  "cityName": "\u5317\u4EAC\u5E02",
+  "districtCode": "110108",
+  "districtName": "\u6D77\u6DC0\u533A",
+  "postcode": "100193",
+  "address": "\u4E1C\u5317\u65FA\u897F\u8DEF8\u53F7\u9662\u4E2D\u5173\u6751\u8F6F\u4EF6\u56ED",
+  "receiverName": "\u5F20\u4E09",
+  "receiverMobile": "15112345678",
+  "receiverPhone": "010-88888888"
+}

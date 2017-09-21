@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- ================================================================= Licensed 
+	Materials - Property of IBM WebSphere Commerce (C) Copyright IBM Corp. 2009, 
+	2010 All Rights Reserved. US Government Users Restricted Rights - Use, duplication 
+	or disclosure restricted by GSA ADP Schedule Contract with IBM Corp. ================================================================= -->
+<Scenario name="SearchTest">
+	<Test name="searchAllTest">
+		<Datablock name="searchBody">
+			<Input>
+			</Input>
+			<Output>					
+				<Parameter name="name1" value="4C ICELAND沐浴露" />				
+				<Parameter name="name2" value="Bveeno婴儿洗发沐浴露二合一" />
+				<Parameter name="name3" value="DOPUEIT蜂蜜" />	
+				<Parameter name="name4" value="SODITHO妈妈身体按摩油" />			
+				<Parameter name="name5" value="日本tsuwiho刺绣金线猫咪围巾" /> 				
+				<Parameter name="totalCount" value="5" />		
+				<Parameter name="pageCount" value="1" />				
+				<Parameter name="currentPage" value="1" />
+				<Parameter name="perPage" value="20" />		
+			</Output>
+		</Datablock>
+	</Test>	
+	<Test name="searchKeywordTest">
+		<Datablock name="searchBody">
+			<Input>
+			</Input>
+			<Output>					
+				<Parameter name="name" value="Bveeno婴儿洗发沐浴露二合一" />		  				
+				<Parameter name="totalCount" value="1" />		
+				<Parameter name="pageCount" value="1" />				
+				<Parameter name="currentPage" value="1" />
+				<Parameter name="perPage" value="20" />		
+			</Output>
+		</Datablock>
+	</Test>	
+	<Test name="searchPerpageTest">
+		<Datablock name="searchBody">
+			<Input>
+			</Input>
+			<Output>								
+				<Parameter name="totalCount" value="5" />		
+				<Parameter name="pageCount" value="4" />				
+				<Parameter name="currentPage" value="1" />
+				<Parameter name="perPage" value="3" />		
+			</Output>
+		</Datablock>
+	</Test>	
+	<Test name="searchMiddlePageTest">
+		<Datablock name="searchBody">
+			<Input>
+			</Input>
+			<Output>								
+				<Parameter name="totalCount" value="5" />		
+				<Parameter name="pageCount" value="4" />				
+				<Parameter name="currentPage" value="2" />
+				<Parameter name="perPage" value="3" />		
+			</Output>
+		</Datablock>
+	</Test>	
+	<Test name="searchLastPageTest">
+		<Datablock name="searchBody">
+			<Input>
+			</Input>
+			<Output>					 			
+				<Parameter name="totalCount" value="5" />		
+				<Parameter name="pageCount" value="4" />				
+				<Parameter name="currentPage" value="4" />
+				<Parameter name="perPage" value="3" />		
+			</Output>
+		</Datablock>
+	</Test>	
+</Scenario>

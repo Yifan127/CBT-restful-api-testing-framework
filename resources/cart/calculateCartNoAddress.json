@@ -1,0 +1,6 @@
+{
+    "cartlineIds": ["@cartlineList"],
+    "calcPromotion": false,
+    "calcShipping": true,
+    "calcTax": false
+}

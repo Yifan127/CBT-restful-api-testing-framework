@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- ================================================================= Licensed 
+	Materials - Property of IBM WebSphere Commerce (C) Copyright IBM Corp. 2009, 
+	2010 All Rights Reserved. US Government Users Restricted Rights - Use, duplication 
+	or disclosure restricted by GSA ADP Schedule Contract with IBM Corp. ================================================================= -->
+<Scenario name="ProvisionTest">
+	<Test name="provisionTest">
+		<Datablock name="provisionBody">
+			<Input>
+				<Parameter name="provisionBody"
+					value="resources/provision/provision.json" />
+			</Input>
+			<Output>		    				
+				<Parameter name="type" value="Item" />		
+				<Parameter name="name" value="Bveeno婴儿洗发沐浴露二合一115ml" />				
+				<Parameter name="shortDescription" value="Bveeno婴儿洗发沐浴露二合一115ml" />
+				<Parameter name="longDescription" value="" />		
+				
+				<Parameter name="attributeName" value="规格" />		
+				<Parameter name="displayValue" value="115ml" />	
+				
+				<Parameter name="categoryId" value="母婴沐浴露" />	
+				<Parameter name="categorypath1" value="沐浴露" />	
+				
+				<Parameter name="countryId" value="HK" />		
+				<Parameter name="countryName" value="中国香港" />	
+				<Parameter name="brandName" value="Bveeno" />	
+				
+				<Parameter name="name1" value="产地" />		
+				<Parameter name="value1" value="香港" />	
+				<Parameter name="name2" value="主要成分" />		
+				<Parameter name="value2" value="糖、 奶末(玉米糖浆固形物，部分氢化植物油(含有大豆)，酪蛋白钠(含有奶类制品)等" />	
+				<Parameter name="name3" value="分类" />		
+				<Parameter name="value3" value="奶末" />	
+
+			</Output>
+		</Datablock>
+	</Test>	
+</Scenario>

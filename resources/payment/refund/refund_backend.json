@@ -1,0 +1,8 @@
+{
+  "orderId": "@orderId",
+  "amount": "44.00",
+  "currency": "CNY",
+  "sourcePlatform": "EC",
+  "returnId": "123",
+  "createTimestamp": "@createTimestamp"
+} 

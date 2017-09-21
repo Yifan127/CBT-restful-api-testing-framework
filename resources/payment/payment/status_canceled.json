@@ -1,0 +1,8 @@
+{
+  "order_id":"@orderId", 
+  "pay_method":"AliPay", 
+  "amount":"44", 
+  "status":"CANCELED",
+  "pay_account":"123",
+  "trade_no":"456"
+}

@@ -1,0 +1,11 @@
+{
+    "cartlineIds": ["@cartlineList"],
+    "address": {
+    "state_code": "110000",
+    "city_code": "110100",
+    "district_code": "110102"  
+  },
+    "calcPromotion": true,
+    "calcShipping": true,
+    "calcTax": true
+}

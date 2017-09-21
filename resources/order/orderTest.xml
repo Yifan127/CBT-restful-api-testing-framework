@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- ================================================================= Licensed 
+	Materials - Property of IBM WebSphere Commerce (C) Copyright IBM Corp. 2009, 
+	2010 All Rights Reserved. US Government Users Restricted Rights - Use, duplication 
+	or disclosure restricted by GSA ADP Schedule Contract with IBM Corp. ================================================================= -->
+<Scenario name="orderTest">
+	<Test name="setup">
+		<Datablock name="orderBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/addAddress.json" />
+			</Input>
+			<Output>
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="sumbitOrderTest">
+		<Datablock name="orderBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+			</Input>
+			<Output>		
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="getOrderByOrderIdTest">
+		<Datablock name="orderBody">
+			<Input>
+			</Input>
+			<Output>		
+				<Parameter name="orderStatus" value="CREATED" />
+				<Parameter name="orderComment" value="" />	
+				<Parameter name="paymentType" value="" />			
+				<Parameter name="shippingAddress" value="上海市黄浦区科苑路399号10号楼6层" />			
+				<Parameter name="shippingReceiverName" value="张三" />
+				<Parameter name="shippingReceiverMobile" value="15611351087" />
+				<Parameter name="shippingReceiverPhone" value="021-60928678" />
+				<Parameter name="shippingReceiverEmail" value="" />
+				<Parameter name="shippingCountryCode" value="CN" />
+				<Parameter name="shippingCountryName" value="China" />
+				<Parameter name="shippingStateCode" value="310000" />
+				<Parameter name="shippingStateName" value="上海市" />
+				<Parameter name="shippingCityCode" value="310100" />
+				<Parameter name="shippingCityName" value="上海市" />
+				<Parameter name="shippingDistrictCode" value="310101" />
+				<Parameter name="shippingDistrictName" value="黄浦区" />
+				<Parameter name="shippingPostcode" value="201203" />				
+				<Parameter name="shippingOriginalPrice" value="6.00" />			
+				<Parameter name="shippingPrice" value="6.00" />
+				<Parameter name="taxPrice" value="0.00" />
+				<Parameter name="actualPrice" value="44.00" />
+				<Parameter name="itemsPrice" value="38.00" />
+				<Parameter name="adjustmentPrice" value="0.00" />												
+				<Parameter name="quantity" value="1" />	
+				<Parameter name="itemDisplayText" value="Bveeno婴儿洗发沐浴露二合一115ml" />		
+				<Parameter name="itemImageLink" value="http://7vigs7.com1.z0.glb.clouddn.com/%E6%B2%90%E6%B5%B4%E9%9C%B2115ml-full.png" />
+				<Parameter name="unitPrice" value="38.00" />	
+				<Parameter name="tax" value="0.00" />	
+				<Parameter name="adjustment" value="0.00" />			
+				<Parameter name="creatorId" value="用户" />	
+				<Parameter name="description" value="用户创建订单" />		
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="confirmReceivedOrderTest">
+		<Datablock name="orderBody">
+			<Input>
+				<Parameter name="orderBody"
+					value="resources/order/confirmReceivedOrder.json" />
+			</Input>
+			<Output>		
+				<Parameter name="orderStatus" value="FINISHED" />				
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="requiredFieldCartlineIdTest">
+		<Datablock name="orderBody">
+			<Input>
+				<Parameter name="orderBody"
+					value="resources/order/requiredFieldCartlineId.json" />
+			</Input>
+			<Output>						
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="requiredFieldAddressIdTest">
+		<Datablock name="orderBody">
+			<Input>
+				<Parameter name="orderBody"
+					value="resources/order/requiredFieldAddressId.json" />
+			</Input>
+			<Output>						
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="requiredFieldOrderIdTest">
+		<Datablock name="orderBody">
+			<Input>
+			</Input>
+			<Output>						
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="nullCartlineIdTest">
+		<Datablock name="orderBody">
+			<Input>
+				<Parameter name="orderBody"
+					value="resources/order/nullCartlineId.json" />
+			</Input>
+			<Output>						
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="nullAddressIdTest">
+		<Datablock name="orderBody">
+			<Input>
+				<Parameter name="orderBody"
+					value="resources/order/nullAddressId.json" />
+			</Input>
+			<Output>						
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="nullOrderIdTest">
+		<Datablock name="orderBody">
+			<Input>
+			</Input>
+			<Output>						
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="invalidCartlineIdTest">
+		<Datablock name="orderBody">
+			<Input>
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+			</Input>
+			<Output>						
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="invalidAddressIdTest">
+		<Datablock name="orderBody">
+			<Input>
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+			</Input>
+			<Output>						
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="invalidOrderIdTest">
+		<Datablock name="orderBody">
+			<Input>
+			</Input>
+			<Output>						
+			</Output>
+		</Datablock>
+	</Test>
+	
+	<Test name="invalidOauthTest">
+		<Datablock name="orderBody">
+			<Input>
+				<Parameter name="oauthBody"
+					value="resources/passport/login/oauth.json" />
+			    <Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+			</Input>
+		</Datablock>
+	</Test>
+	<Test name="multiTenantTest">
+		<Datablock name="orderBody">
+			<Input>
+				<Parameter name="oauthBody"
+					value="resources/passport/login/oauth.json" />
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="addressBody"
+					value="resources/address/addAddress.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+			</Input>
+			<Output>															
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="sumbitOrderCarrierIdTest">
+		<Datablock name="orderBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrderCarrierId.json" />
+			</Input>
+			<Output>	
+				<Parameter name="orderStatus" value="CREATED" />
+				<Parameter name="orderComment" value="" />	
+				<Parameter name="paymentType" value="" />			
+				<Parameter name="shippingAddress" value="上海市黄浦区科苑路399号10号楼6层" />			
+				<Parameter name="shippingReceiverName" value="张三" />
+				<Parameter name="shippingReceiverMobile" value="15611351087" />
+				<Parameter name="shippingReceiverPhone" value="021-60928678" />
+				<Parameter name="shippingReceiverEmail" value="" />
+				<Parameter name="shippingCountryCode" value="CN" />
+				<Parameter name="shippingCountryName" value="China" />
+				<Parameter name="shippingStateCode" value="310000" />
+				<Parameter name="shippingStateName" value="上海市" />
+				<Parameter name="shippingCityCode" value="310100" />
+				<Parameter name="shippingCityName" value="上海市" />
+				<Parameter name="shippingDistrictCode" value="310101" />
+				<Parameter name="shippingDistrictName" value="黄浦区" />
+				<Parameter name="shippingPostcode" value="201203" />				
+				<Parameter name="shippingOriginalPrice" value="6.00" />			
+				<Parameter name="shippingPrice" value="6.00" />
+				<Parameter name="taxPrice" value="0.00" />
+				<Parameter name="actualPrice" value="44.00" />
+				<Parameter name="itemsPrice" value="38.00" />
+				<Parameter name="adjustmentPrice" value="0.00" />												
+				<Parameter name="quantity" value="1" />	
+				<Parameter name="itemDisplayText" value="Bveeno婴儿洗发沐浴露二合一115ml" />		
+				<Parameter name="itemImageLink" value="http://7vigs7.com1.z0.glb.clouddn.com/%E6%B2%90%E6%B5%B4%E9%9C%B2115ml-full.png" />
+				<Parameter name="unitPrice" value="38.00" />	
+				<Parameter name="tax" value="0.00" />	
+				<Parameter name="adjustment" value="0.00" />			
+				<Parameter name="creatorId" value="用户" />	
+				<Parameter name="description" value="用户创建订单" />		
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="cancelCreatedOrderTest">
+		<Datablock name="orderBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+			</Input>
+			<Output>	
+				<Parameter name="orderStatus" value="CLOSED" />	
+				<Parameter name="creatorId" value="用户" />	
+				<Parameter name="description1" value="用户创建订单" />
+				<Parameter name="description2" value="订单被用户取消" />
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="cancelPaidOrderTest">
+		<Datablock name="orderBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/payment.json" />
+			</Input>
+			<Output>	
+				<Parameter name="pay_status" value="PAID" />
+				<Parameter name="orderStatus1" value="PAID" />
+				<Parameter name="payAmount" value="44.00" />
+				<Parameter name="paymentMethod" value="AliPay" />	
+				<Parameter name="paymentNumber" value="456" />
+				<Parameter name="orderStatus2" value="CANCELED" />	
+				<Parameter name="creatorId" value="用户" />		
+				<Parameter name="description1" value="用户创建订单" />
+				<Parameter name="description2" value="用户支付订单" />
+				<Parameter name="description3" value="订单被用户取消" />
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="cancelScheduledOrderTest">
+		<Datablock name="orderBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/payment.json" />
+			</Input>
+			<Output>	
+				<Parameter name="pay_status" value="PAID" />
+				<Parameter name="orderStatus1" value="SCHEDULED" />
+				<Parameter name="payAmount" value="44.00" />
+				<Parameter name="paymentMethod" value="AliPay" />	
+				<Parameter name="paymentNumber" value="456" />
+				<Parameter name="orderStatus2" value="CANCELED" />		
+				<Parameter name="creatorId1" value="用户" />	
+				<Parameter name="creatorId2" value="Tester" />					
+				<Parameter name="description1" value="用户创建订单" />
+				<Parameter name="description2" value="用户支付订单" />
+				<Parameter name="description3" value="系统完成订单排程" />
+				<Parameter name="description4" value="订单被用户取消" />
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="cancelReleasedOrderTest">
+		<Datablock name="orderBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/payment.json" />
+			</Input>
+			<Output>	
+				<Parameter name="pay_status" value="PAID" />
+				<Parameter name="payAmount" value="44.00" />
+				<Parameter name="paymentMethod" value="AliPay" />	
+				<Parameter name="paymentNumber" value="456" />
+				<Parameter name="orderStatus" value="RELEASED" />	
+				<Parameter name="creatorId1" value="用户" />	
+				<Parameter name="creatorId2" value="Tester" />	
+				<Parameter name="description1" value="用户创建订单" />
+				<Parameter name="description2" value="用户支付订单" />
+				<Parameter name="description3" value="系统完成订单排程" />
+				<Parameter name="description4" value="系统发送订单作业到仓库" />
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="cancelShippedOrderTest">
+		<Datablock name="orderBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/payment.json" />
+			</Input>
+			<Output>	
+				<Parameter name="pay_status" value="PAID" />
+				<Parameter name="payAmount" value="44.00" />
+				<Parameter name="paymentMethod" value="AliPay" />	
+				<Parameter name="paymentNumber" value="456" />
+				<Parameter name="orderStatus" value="SHIPPING" />	
+				<Parameter name="creatorId1" value="用户" />	
+				<Parameter name="creatorId2" value="Tester" />	
+				<Parameter name="creatorId3" value="仓库" />	
+				<Parameter name="description1" value="用户创建订单" />
+				<Parameter name="description2" value="用户支付订单" />
+				<Parameter name="description3" value="系统完成订单排程" />
+				<Parameter name="description4" value="系统发送订单作业到仓库" />
+				<Parameter name="description5" value="订单对应的包裹由仓库发出" />
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="cancelReceivedOrderTest">
+		<Datablock name="orderBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/payment.json" />
+				<Parameter name="receiveOrderBody"
+					value="resources/order/confirmReceivedOrder.json" />
+			</Input>
+			<Output>	
+				<Parameter name="pay_status" value="PAID" />
+				<Parameter name="payAmount" value="44.00" />
+				<Parameter name="paymentMethod" value="AliPay" />	
+				<Parameter name="paymentNumber" value="456" />
+				<Parameter name="orderStatus" value="FINISHED" />	
+				<Parameter name="creatorId1" value="用户" />	
+				<Parameter name="creatorId2" value="Tester" />	
+				<Parameter name="creatorId3" value="仓库" />	
+				<Parameter name="description1" value="用户创建订单" />
+				<Parameter name="description2" value="用户支付订单" />
+				<Parameter name="description3" value="系统完成订单排程" />
+				<Parameter name="description4" value="系统发送订单作业到仓库" />
+				<Parameter name="description5" value="订单对应的包裹由仓库发出" />
+				<Parameter name="description6" value="用户确认收货" />
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="getOrderListTest">
+		<Datablock name="orderBody">
+			<Input>
+				<Parameter name="oauthBody"
+					value="resources/passport/login/oauth.json" />
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="addressBody"
+					value="resources/address/addAddress.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+			</Input>
+			<Output>		
+			    <Parameter name="orderStatus" value="CREATED" />
+				<Parameter name="orderComment" value="" />	
+				<Parameter name="paymentType" value="" />			
+				<Parameter name="shippingAddress" value="上海市黄浦区科苑路399号10号楼6层" />			
+				<Parameter name="shippingReceiverName" value="张三" />
+				<Parameter name="shippingReceiverMobile" value="15611351087" />
+				<Parameter name="shippingReceiverPhone" value="021-60928678" />
+				<Parameter name="shippingReceiverEmail" value="" />
+				<Parameter name="shippingCountryCode" value="CN" />
+				<Parameter name="shippingCountryName" value="China" />
+				<Parameter name="shippingStateCode" value="310000" />
+				<Parameter name="shippingStateName" value="上海市" />
+				<Parameter name="shippingCityCode" value="310100" />
+				<Parameter name="shippingCityName" value="上海市" />
+				<Parameter name="shippingDistrictCode" value="310101" />
+				<Parameter name="shippingDistrictName" value="黄浦区" />
+				<Parameter name="shippingPostcode" value="201203" />				
+				<Parameter name="shippingOriginalPrice" value="6.00" />			
+				<Parameter name="shippingPrice" value="6.00" />
+				<Parameter name="taxPrice" value="0.00" />
+				<Parameter name="actualPrice" value="44.00" />
+				<Parameter name="itemsPrice" value="38.00" />
+				<Parameter name="adjustmentPrice" value="0.00" />												
+				<Parameter name="quantity" value="1" />	
+				<Parameter name="itemDisplayText" value="Bveeno婴儿洗发沐浴露二合一115ml" />		
+				<Parameter name="itemImageLink" value="http://7vigs7.com1.z0.glb.clouddn.com/%E6%B2%90%E6%B5%B4%E9%9C%B2115ml-full.png" />
+				<Parameter name="unitPrice" value="38.00" />	
+				<Parameter name="tax" value="0.00" />	
+				<Parameter name="adjustment" value="0.00" />
+				<Parameter name="totalCount" value="1" />	
+				<Parameter name="pageCount" value="1" />
+				<Parameter name="currentPage" value="1" />	
+				<Parameter name="perPage" value="20" />		
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="getOrderListCreatedTest">
+		<Datablock name="orderBody">
+			<Input>
+			</Input>
+			<Output>		
+				<Parameter name="orderStatus" value="CREATED" />
+				<Parameter name="currentPage" value="1" />	
+				<Parameter name="perPage" value="20" />		
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="getOrderListPaidTest">
+		<Datablock name="orderBody">
+			<Input>
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/payment.json" />
+			</Input>
+			<Output>		
+				<Parameter name="orderStatus" value="PAID" />
+				<Parameter name="currentPage" value="1" />	
+				<Parameter name="perPage" value="20" />		
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="getOrderListShippedTest">
+		<Datablock name="orderBody">
+			<Input>
+			</Input>
+			<Output>		
+				<Parameter name="orderStatus" value="SHIPPED" />
+				<Parameter name="currentPage" value="1" />	
+				<Parameter name="perPage" value="20" />		
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="getOrderListFinishedTest">
+		<Datablock name="orderBody">
+			<Input>
+			</Input>
+			<Output>		
+				<Parameter name="orderStatus" value="FINISHED" />
+				<Parameter name="currentPage" value="1" />	
+				<Parameter name="perPage" value="20" />		
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="getOrderListReturnCreatedTest">
+		<Datablock name="orderBody">
+			<Input>
+			</Input>
+			<Output>		
+				<Parameter name="orderStatus" value="RETURN_CREATED" />
+				<Parameter name="totolCount" value="2" />	
+				<Parameter name="currentPage" value="1" />	
+				<Parameter name="perPage" value="20" />		
+			</Output>
+		</Datablock>
+	</Test>
+</Scenario>

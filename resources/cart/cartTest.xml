@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- ================================================================= Licensed 
+	Materials - Property of IBM WebSphere Commerce (C) Copyright IBM Corp. 2009, 
+	2010 All Rights Reserved. US Government Users Restricted Rights - Use, duplication 
+	or disclosure restricted by GSA ADP Schedule Contract with IBM Corp. ================================================================= -->
+<Scenario name="cartTest">
+	<Test name="addToCartTest">
+		<Datablock name="cartBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+			</Input>
+			<Output>		
+				<Parameter name="itemDisplayText" value="Bveeno婴儿洗发沐浴露二合一115ml" />													
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="getCartTest">
+		<Datablock name="cartBody">
+			<Input>
+			</Input>
+			<Output>		
+				<Parameter name="itemDisplayText" value="Bveeno婴儿洗发沐浴露二合一115ml" />			
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="getCartByIdsTest">
+		<Datablock name="cartBody">
+			<Input>
+				<Parameter name="addToCartBody"
+					value="resources/cart/addToCart.json" />
+			</Input>
+			<Output>		
+				<Parameter name="itemDisplayText" value="Bveeno婴儿洗发沐浴露二合一115ml" />	
+				<Parameter name="itemDisplayText1" value="SODITHO妈妈身体按摩油354ml" />	
+				<Parameter name="cartlineQuantity" value="1" />	
+				<Parameter name="cartlineQuantity1" value="1" />		
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="updateCartQuantityTest">
+		<Datablock name="cartBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/updateCartQuantity.json" />
+			</Input>
+			<Output>		
+				<Parameter name="cartlineQuantity" value="2" />							
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="calculateCartTest">
+		<Datablock name="cartBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/calculateCart.json" />
+			</Input>
+			<Output>		
+				<Parameter name="unitPrice" value="38.00" />	
+				<Parameter name="itemTax" value="0.00" />	
+				<Parameter name="totalPrice" value="76.00" />
+				<Parameter name="adjustPrice" value="62.00" />
+				<Parameter name="originalPrice" value="76.00" />	
+				<Parameter name="shipping" value="0.00" />	
+				<Parameter name="tax" value="0.00" />	
+				<Parameter name="actualPrice" value="76.00" />	
+				<Parameter name="itemNum" value="2.00" />									
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="calculateCartShippingTest">
+		<Datablock name="cartBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/calculateCartShipping.json" />
+			</Input>
+			<Output>		
+				<Parameter name="unitPrice" value="38.00" />	
+				<Parameter name="itemTax" value="0.00" />	
+				<Parameter name="totalPrice" value="76.00" />
+				<Parameter name="adjustPrice" value="62.00" />
+				<Parameter name="originalPrice" value="76.00" />		
+				<Parameter name="shipping" value="6.00" />	
+				<Parameter name="tax" value="0.00" />	
+				<Parameter name="actualPrice" value="82.00" />	
+				<Parameter name="itemNum" value="2.00" />								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="calculateCartTaxTest">
+		<Datablock name="cartBody">
+			<Input>
+			    <Parameter name="cartBody"
+					value="resources/cart/addToCartTax.json" />
+				<Parameter name="calculateCartBody"
+					value="resources/cart/calculateCartTax.json" />
+			</Input>
+			<Output>		
+				<Parameter name="unitPrice" value="18.90" />	
+				<Parameter name="itemTax" value="51.03" />	
+				<Parameter name="totalPrice" value="510.30" />
+				<Parameter name="adjustPrice" value="27.00" />
+				<Parameter name="originalPrice" value="510.30" />	
+				<Parameter name="shipping" value="0.00" />	
+				<Parameter name="tax" value="51.03" />	
+				<Parameter name="actualPrice" value="561.33" />	
+				<Parameter name="itemNum" value="27.00" />									
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="calculateCartMultiItemsTest">
+		<Datablock name="cartBody">
+			<Input>
+				<Parameter name="calculateCartBody"
+					value="resources/cart/calculateCartShipping.json" />
+			</Input>
+			<Output>					
+				<Parameter name="unitPrice1" value="38.00" />	
+				<Parameter name="itemTax1" value="0.00" />	
+				<Parameter name="totalPrice1" value="76.00" />
+				<Parameter name="adjustPrice1" value="62.00" />
+				
+				<Parameter name="unitPrice2" value="64.00" />	
+				<Parameter name="itemTax2" value="0.00" />	
+				<Parameter name="totalPrice2" value="64.00" />
+				<Parameter name="adjustPrice2" value="26.00" />
+				
+				<Parameter name="originalPrice" value="140.00" />	
+				<Parameter name="shipping" value="6.00" />	
+				<Parameter name="tax" value="0.00" />	
+				<Parameter name="actualPrice" value="146.00" />	
+				<Parameter name="itemNum" value="3.00" />												
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="deteletCartByIdsTest">
+		<Datablock name="cartBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="cartIds"
+					value="@cartId1|@cartId2" />	
+			</Input>
+			<Output>														
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="requiredFieldItemIdTest">
+		<Datablock name="cartBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/requiredFieldItemId.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="requiredFieldQuantityTest">
+		<Datablock name="cartBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/requiredFieldQuantity.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="nullItemIdTest">
+		<Datablock name="cartBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/nullItemId.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="nullQuantityTest">
+		<Datablock name="cartBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/nullQuantity.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="wrongTypeQuantityTest">
+		<Datablock name="cartBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/wrongTypeQuantity.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="requiredFieldUpdateQuantityTest">
+		<Datablock name="cartBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/requiredFieldUpdateQuantity.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="nullUpdateQuantityTest">
+		<Datablock name="cartBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/nullUpdateQuantity.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="invalidItemIdTest">
+		<Datablock name="cartBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/invalidItemId.json" />
+			</Input>
+			<Output>	
+				<Parameter name="itemId" value="1" />							
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="quantityNegativeTest">
+		<Datablock name="cartBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/quantityNegative.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="quantityZeroTest">
+		<Datablock name="cartBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/quantityZero.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="caculateCartNoAddressTest">
+		<Datablock name="cartBody">
+			<Input>
+			    <Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="calculateBody"
+					value="resources/cart/calculateCartNoAddress.json" />
+			</Input>
+		</Datablock>
+	</Test>
+	<Test name="caculateCartRequiredFieldStateCodeTest">
+		<Datablock name="cartBody">
+			<Input>
+			    <Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+			    <Parameter name="calculateBody"
+					value="resources/cart/calculateCartRequiredField_stateCode.json" />
+			</Input>
+		</Datablock>
+	</Test>
+	<Test name="caculateCartNullStateCodeTest">
+		<Datablock name="cartBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+			    <Parameter name="calculateBody"
+					value="resources/cart/calculateCartNull_stateCode.json" />
+			</Input>
+		</Datablock>
+	</Test>
+	<Test name="invalidCartIdCalculateCartTest">
+		<Datablock name="cartBody">
+			<Input>
+			    <Parameter name="calculateBody"
+					value="resources/cart/calculateCart_invalidCartId.json" />
+			</Input>
+		</Datablock>
+	</Test>
+	<Test name="invalidCartIdUpdateCartQuantityTest">
+		<Datablock name="cartBody">
+			<Input>
+			    <Parameter name="cartBody"
+					value="resources/cart/updateCartQuantity.json" />
+			</Input>
+		</Datablock>
+	</Test>
+	<Test name="invalidOauthTest">
+		<Datablock name="cartBody">
+			<Input>
+				<Parameter name="oauthBody"
+					value="resources/passport/login/oauth.json" />
+			    <Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+			</Input>
+		</Datablock>
+	</Test>
+	<Test name="buyableTest">
+		<Datablock name="cartBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/buyable.json" />
+			</Input>
+			<Output>
+				<Parameter name="itemId" value="1522468383425877829" />													
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="inventoryUpdateCartTest">
+		<Datablock name="cartBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="updateBody"
+					value="resources/cart/inventory.json" />
+			</Input>
+			<Output>															
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="inventoryTest">
+		<Datablock name="cartBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/inventory.json" />
+			</Input>
+			<Output>						
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="multiTenantTest">
+		<Datablock name="cartBody">
+			<Input>
+				<Parameter name="oauthBody"
+					value="resources/passport/login/oauth.json" />
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+			</Input>
+			<Output>															
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="calculateCartCarrierIdTest">
+		<Datablock name="cartBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/add1kgToCart.json" />
+				<Parameter name="calculateBody"
+					value="resources/cart/calculateCartCarrierId.json" />
+			</Input>
+			<Output>		
+				<Parameter name="unitPrice" value="38.00" />	
+				<Parameter name="itemTax" value="0.00" />	
+				<Parameter name="totalPrice" value="342.00" />
+				<Parameter name="adjustPrice" value="279.00" />
+				<Parameter name="originalPrice" value="342.00" />	
+				<Parameter name="shipping" value="7.00" />	
+				<Parameter name="tax" value="0.00" />	
+				<Parameter name="actualPrice" value="349.00" />	
+				<Parameter name="itemNum" value="9.00" />									
+			</Output>
+		</Datablock>
+	</Test>
+</Scenario>

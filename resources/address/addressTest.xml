@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- ================================================================= Licensed 
+	Materials - Property of IBM WebSphere Commerce (C) Copyright IBM Corp. 2009, 
+	2010 All Rights Reserved. US Government Users Restricted Rights - Use, duplication 
+	or disclosure restricted by GSA ADP Schedule Contract with IBM Corp. ================================================================= -->
+<Scenario name="addressTest">
+	<Test name="addAddressTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/addAddress.json" />
+			</Input>
+			<Output>			
+				<Parameter name="isDefault" value="true" />
+				<Parameter name="stateCode" value="310000" />	
+				<Parameter name="stateName" value="上海市" />	
+				<Parameter name="cityCode" value="310100" />		
+				<Parameter name="cityName" value="上海市" />
+				<Parameter name="districtCode" value="310101" />
+				<Parameter name="districtName" value="黄浦区" />	
+				<Parameter name="postcode" value="201203" />	
+				<Parameter name="address" value="上海市黄浦区科苑路399号10号楼6层" />		
+				<Parameter name="receiverName" value="张三" />
+				<Parameter name="receiverMobile" value="15611351087" />
+				<Parameter name="receiverPhone" value="021-60928678" />				
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="getAddressListTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/addAnotherAddress.json" />
+			</Input>
+			<Output>		
+				<Parameter name="addressName" value="家" />		
+				<Parameter name="isDefault" value="true" />
+				<Parameter name="countryCode" value="86" />
+				<Parameter name="stateCode" value="310000" />	
+				<Parameter name="stateName" value="上海市" />	
+				<Parameter name="cityCode" value="310100" />		
+				<Parameter name="cityName" value="上海市" />
+				<Parameter name="districtCode" value="310101" />
+				<Parameter name="districtName" value="黄埔区" />	
+				<Parameter name="postcode" value="200201" />	
+				<Parameter name="address" value="上海市黄浦区中山一路101号15号楼801" />		
+				<Parameter name="receiverName" value="赵五" />
+				<Parameter name="receiverMobile" value="13911351084" />
+				<Parameter name="receiverPhone" value="021-38773277" />			
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="setDefaultAddressTest">
+		<Datablock name="addressBody">
+			<Input>
+			</Input>
+			<Output>			
+				<Parameter name="isDefault" value="true" />
+				<Parameter name="stateCode" value="310000" />	
+				<Parameter name="stateName" value="上海市" />	
+				<Parameter name="cityCode" value="310100" />		
+				<Parameter name="cityName" value="上海市" />
+				<Parameter name="districtCode" value="310101" />
+				<Parameter name="districtName" value="黄浦区" />	
+				<Parameter name="postcode" value="201203" />	
+				<Parameter name="address" value="上海市黄浦区科苑路399号10号楼6层" />		
+				<Parameter name="receiverName" value="张三" />
+				<Parameter name="receiverMobile" value="15611351087" />
+				<Parameter name="receiverPhone" value="021-60928678" />				
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="getDefaultAddressTest">
+		<Datablock name="addressBody">
+			<Input>
+			</Input>
+			<Output>			
+				<Parameter name="isDefault" value="true" />
+				<Parameter name="stateCode" value="310000" />	
+				<Parameter name="stateName" value="上海市" />	
+				<Parameter name="cityCode" value="310100" />		
+				<Parameter name="cityName" value="上海市" />
+				<Parameter name="districtCode" value="310101" />
+				<Parameter name="districtName" value="黄浦区" />	
+				<Parameter name="postcode" value="201203" />	
+				<Parameter name="address" value="上海市黄浦区科苑路399号10号楼6层" />		
+				<Parameter name="receiverName" value="张三" />
+				<Parameter name="receiverMobile" value="15611351087" />
+				<Parameter name="receiverPhone" value="021-60928678" />				
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="updateAddressTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/updateAddress.json" />
+			</Input>
+			<Output>		
+				<Parameter name="isDefault" value="false" />
+				<Parameter name="countryCode" value="86" />
+				<Parameter name="stateCode" value="110000" />	
+				<Parameter name="stateName" value="北京市" />	
+				<Parameter name="cityCode" value="110100" />		
+				<Parameter name="cityName" value="北京市" />
+				<Parameter name="districtCode" value="110108" />
+				<Parameter name="districtName" value="海淀区" />	
+				<Parameter name="postcode" value="100193" />	
+				<Parameter name="address" value="东北旺西路8号院中关村软件园" />		
+				<Parameter name="receiverName" value="张三" />
+				<Parameter name="receiverMobile" value="15112345678" />
+				<Parameter name="receiverPhone" value="010-88888888" />				
+			</Output>
+		</Datablock>
+	</Test>	
+	<Test name="nonRequiredFieldAddAddressTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/nonRequiredFieldAddAddress.json" />
+			</Input>
+			<Output>		
+				<Parameter name="stateCode" value="310000" />	
+				<Parameter name="cityCode" value="310100" />		
+				<Parameter name="districtCode" value="310101" />
+				<Parameter name="postcode" value="201203" />	
+				<Parameter name="address" value="上海市黄浦区科苑路399号10号楼6层" />		
+				<Parameter name="receiverName" value="张三" />
+				<Parameter name="receiverMobile" value="15611351087" />
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="requiredFieldStateCodeTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/requiredFieldStateCode.json" />
+			</Input>
+			<Output>					
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="requiredFieldCityCodeTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/requiredFieldCityCode.json" />
+			</Input>
+			<Output>					
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="requiredFieldDistrictCodeTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/requiredFieldDistrictCode.json" />
+			</Input>
+			<Output>					
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="requiredFieldAddressTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/requiredFieldAddress.json" />
+			</Input>
+			<Output>					
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="requiredFieldReceiverNameTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/requiredFieldReceiverName.json" />
+			</Input>
+			<Output>					
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="requiredFieldReceiverMobileTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/requiredFieldReceiverMobile.json" />
+			</Input>
+			<Output>					
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="requiredFieldPostcodeTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/requiredFieldPostcode.json" />
+			</Input>
+			<Output>					
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="nullStateCodeTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/nullStateCode.json" />
+			</Input>
+			<Output>					
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="nullCityCodeTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/nullCityCode.json" />
+			</Input>
+			<Output>					
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="nullDistrictCodeTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/nullDistrictCode.json" />
+			</Input>
+			<Output>					
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="nullAddressTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/nullAddress.json" />
+			</Input>
+			<Output>					
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="nullReceiverNameTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/nullReceiverName.json" />
+			</Input>
+			<Output>					
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="nullReceiverMobileTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/nullReceiverMobile.json" />
+			</Input>
+			<Output>					
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="nullPostcodeTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/nullPostcode.json" />
+			</Input>
+			<Output>					
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="exceedMaxAddressTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/exceedMaxAddress.json" />
+			</Input>
+			<Output>					
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="wrongTypePostcodeTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/wrongTypePostcode.json" />
+			</Input>
+			<Output>					
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="wrongTypeAddressTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/wrongTypeAddress.json" />
+			</Input>
+			<Output>					
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="wrongTypeReceiverMobileTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/wrongTypeReceiverMobile.json" />
+			</Input>
+			<Output>					
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="wrongTypeReceiverNameTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/wrongTypeReceiverName.json" />
+			</Input>
+			<Output>					
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="minBoundaryAddressTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/minBoundaryAddress.json" />
+			</Input>
+			<Output>					
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="maxBoundaryAddressTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/maxBoundaryAddress.json" />
+			</Input>
+			<Output>					
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="minBoundaryReceiverNameTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/minBoundaryReceiverName.json" />
+			</Input>
+			<Output>					
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="maxBoundaryReceiverNameTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/maxBoundaryReceiverName.json" />
+			</Input>
+			<Output>					
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="validationPostcodeTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/validationPostcode.json" />
+			</Input>
+			<Output>					
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="validationReceiverMobileTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/validationReceiverMobile.json" />
+			</Input>
+			<Output>					
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="validationReceiverPhoneTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/validationReceiverPhone.json" />
+			</Input>
+			<Output>					
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="invalidOauthTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="oauthBody"
+					value="resources/passport/login/oauth.json" />
+				<Parameter name="addressBody"
+					value="resources/address/addAddress.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="multiTenantTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/addAddress.json" />
+				<Parameter name="oauthBody"
+					value="resources/passport/login/oauth.json" />
+			</Input>
+			<Output>			
+				<Parameter name="isDefault" value="true" />
+				<Parameter name="stateCode" value="310000" />	
+				<Parameter name="stateName" value="上海市" />	
+				<Parameter name="cityCode" value="310100" />		
+				<Parameter name="cityName" value="上海市" />
+				<Parameter name="districtCode" value="310101" />
+				<Parameter name="districtName" value="黄浦区" />	
+				<Parameter name="postcode" value="201203" />	
+				<Parameter name="address" value="上海市黄浦区科苑路399号10号楼6层" />		
+				<Parameter name="receiverName" value="张三" />
+				<Parameter name="receiverMobile" value="15611351087" />
+				<Parameter name="receiverPhone" value="021-60928678" />				
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="invalidSpecialReceiverNameTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/invalidSpecialReceiverName.json" />
+			</Input>
+			<Output>							
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="validSpecialReceiverNameTest">
+		<Datablock name="addressBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/validSpecialReceiverName.json" />
+			</Input>
+			<Output>	
+				<Parameter name="isDefault" value="true" />
+				<Parameter name="stateCode" value="310000" />	
+				<Parameter name="stateName" value="上海市" />	
+				<Parameter name="cityCode" value="310100" />		
+				<Parameter name="cityName" value="上海市" />
+				<Parameter name="districtCode" value="310101" />
+				<Parameter name="districtName" value="黄浦区" />	
+				<Parameter name="postcode" value="201203" />	
+				<Parameter name="address" value="上海市黄浦区科苑路399号10号楼6层" />		
+				<Parameter name="receiverName" value="区科-test_1" />
+				<Parameter name="receiverMobile" value="15611351087" />
+				<Parameter name="receiverPhone" value="021-60928678" />										
+			</Output>
+		</Datablock>
+	</Test>
+</Scenario>
+
+

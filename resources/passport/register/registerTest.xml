@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- ================================================================= Licensed 
+	Materials - Property of IBM WebSphere Commerce (C) Copyright IBM Corp. 2009, 
+	2010 All Rights Reserved. US Government Users Restricted Rights - Use, duplication 
+	or disclosure restricted by GSA ADP Schedule Contract with IBM Corp. ================================================================= -->
+<Scenario name="registerTest">
+	<Test name="registerTest">
+		<Datablock name="registerBody">
+			<Input>
+				<Parameter name="registerBody"
+					value="resources/passport/register/register.json" />
+			</Input>
+			<Output>		
+				<Parameter name="userName" value="abc123" />							
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="duplicatedRegisterTest">
+		<Datablock name="registerBody">
+			<Input>
+				<Parameter name="registerBody"
+					value="resources/passport/register/duplicatedRegister.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="unMatchPasswordTest">
+		<Datablock name="registerBody">
+			<Input>
+				<Parameter name="registerBody"
+					value="resources/passport/register/unMatchPassword.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="invalidUsernameMobileTest">
+		<Datablock name="registerBody">
+			<Input>
+				<Parameter name="registerBody"
+					value="resources/passport/register/invalidUsernameMobile.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="invalidUsernameEmailTest">
+		<Datablock name="registerBody">
+			<Input>
+				<Parameter name="registerBody"
+					value="resources/passport/register/invalidUsernameEmail.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="requiredFieldUsernameTest">
+		<Datablock name="registerBody">
+			<Input>
+				<Parameter name="registerBody"
+					value="resources/passport/register/requiredFieldUsername.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="requiredFieldPasswordTest">
+		<Datablock name="registerBody">
+			<Input>
+				<Parameter name="registerBody"
+					value="resources/passport/register/requiredFieldPassword.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="requiredFieldConfirmPasswordTest">
+		<Datablock name="registerBody">
+			<Input>
+				<Parameter name="registerBody"
+					value="resources/passport/register/requiredFieldConfirmPassword.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="nullUsernameTest">
+		<Datablock name="registerBody">
+			<Input>
+				<Parameter name="registerBody"
+					value="resources/passport/register/nullUsername.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="nullPasswordTest">
+		<Datablock name="registerBody">
+			<Input>
+				<Parameter name="registerBody"
+					value="resources/passport/register/nullPassword.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="nullConfirmPasswordTest">
+		<Datablock name="registerBody">
+			<Input>
+				<Parameter name="registerBody"
+					value="resources/passport/register/nullConfirmPassword.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="registerUsernameMaxBoundaryTest">
+		<Datablock name="registerBody">
+			<Input>
+				<Parameter name="registerBody"
+					value="resources/passport/register/registerUsernameMaxBoundary.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="registerUsernameMinBoundaryTest">
+		<Datablock name="registerBody">
+			<Input>
+				<Parameter name="registerBody"
+					value="resources/passport/register/registerUsernameMinBoundary.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="registerPasswordMaxBoundaryTest">
+		<Datablock name="registerBody">
+			<Input>
+				<Parameter name="registerBody"
+					value="resources/passport/register/registerPasswordMaxBoundary.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="registerPasswordMinBoundaryTest">
+		<Datablock name="registerBody">
+			<Input>
+				<Parameter name="registerBody"
+					value="resources/passport/register/registerPasswordMinBoundary.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+</Scenario>
+
+

@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- ================================================================= Licensed 
+	Materials - Property of IBM WebSphere Commerce (C) Copyright IBM Corp. 2009, 
+	2010 All Rights Reserved. US Government Users Restricted Rights - Use, duplication 
+	or disclosure restricted by GSA ADP Schedule Contract with IBM Corp. ================================================================= -->
+<Scenario name="paymentTest">
+	<Test name="setup">
+		<Datablock name="refundBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/addAddress.json" />
+			</Input>
+			<Output>
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="refundTotalTest">
+		<Datablock name="refundBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/payment.json" />
+				<Parameter name="refundBackendBody"
+					value="resources/payment/refund/refund_backend.json" />
+				<Parameter name="refundBody"
+					value="resources/payment/refund/refund.json" />
+			</Input>
+			<Output>
+				<Parameter name="total_amount" value="44.00" />	
+				<Parameter name="pay_status" value="REFUNDED" />
+				<Parameter name="paid_amount" value="44.00" />
+				<Parameter name="refunded_amount" value="44.00" />
+				<Parameter name="pay_method" value="AliPay" />
+				<Parameter name="pay_amount" value="44.00" />	
+				<Parameter name="currency" value="CNY" />	
+				<Parameter name="pay_account" value="123" />
+				<Parameter name="payment_status" value="SUCCESS" />	
+				<Parameter name="trade_no" value="456" />
+				
+				<Parameter name="refund_method" value="AliPay" />
+				<Parameter name="refund_amount" value="44.00" />		
+				<Parameter name="refund_account" value="123" />
+				<Parameter name="refund_status" value="SUCCESS" />	
+				<Parameter name="refund_no" value="321" />
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="refundPartialTest">
+		<Datablock name="refundBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/payment.json" />
+				<Parameter name="refundBackendBody1"
+					value="resources/payment/refund/refund_partial1_backend.json" />
+				<Parameter name="refundBackendBody2"
+					value="resources/payment/refund/refund_partial2_backend.json" />
+				<Parameter name="refundBody1"
+					value="resources/payment/refund/refundPartial1.json" />
+				<Parameter name="refundBody2"
+					value="resources/payment/refund/refundPartial2.json" />
+			</Input>
+			<Output>
+				<Parameter name="total_amount" value="44.00" />	
+				<Parameter name="pay_status1" value="PARTIAL_REFUNDED" />
+				<Parameter name="paid_amount" value="44.00" />
+				<Parameter name="refunded_amount1" value="1.00" />
+				<Parameter name="pay_method" value="AliPay" />
+				<Parameter name="pay_amount" value="44.00" />	
+				<Parameter name="currency" value="CNY" />	
+				<Parameter name="pay_account" value="123" />
+				<Parameter name="payment_status" value="SUCCESS" />	
+				<Parameter name="trade_no" value="456" />
+				
+				<Parameter name="refund_method" value="AliPay" />
+				<Parameter name="refund_amount1" value="1.00" />		
+				<Parameter name="refund_account" value="123" />
+				<Parameter name="refund_status" value="SUCCESS" />	
+				<Parameter name="refund_no" value="321" />
+				
+				<Parameter name="pay_status2" value="REFUNDED" />
+				<Parameter name="refunded_amount2" value="44.00" />
+				<Parameter name="refund_amount2" value="43.00" />		
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="refundExceedTest">
+		<Datablock name="refundBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/payment.json" />
+				<Parameter name="refundBackendBody"
+					value="resources/payment/refund/refund_backend.json" />
+				<Parameter name="refundBody"
+					value="resources/payment/refund/refundExceed.json" />
+			</Input>
+			<Output>
+				<Parameter name="total_amount" value="44.00" />	
+				<Parameter name="pay_status" value="REFUNDED" />
+				<Parameter name="paid_amount" value="44.00" />
+				<Parameter name="refunded_amount" value="44.01" />
+				<Parameter name="pay_method" value="AliPay" />
+				<Parameter name="pay_amount" value="44.00" />	
+				<Parameter name="currency" value="CNY" />	
+				<Parameter name="pay_account" value="123" />
+				<Parameter name="payment_status" value="SUCCESS" />	
+				<Parameter name="trade_no" value="456" />
+				
+				<Parameter name="refund_method" value="AliPay" />
+				<Parameter name="refund_amount" value="44.01" />		
+				<Parameter name="refund_account" value="123" />
+				<Parameter name="refund_status" value="SUCCESS" />	
+				<Parameter name="refund_no" value="321" />
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="requiredFieldRefundIdTest">
+		<Datablock name="refundBody">
+			<Input>
+				<Parameter name="refundBody"
+					value="resources/payment/refund/requiredField_refundId.json" />
+			</Input>
+			<Output>
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="requiredFieldRefundNoTest">
+		<Datablock name="refundBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/payment.json" />
+				<Parameter name="refundBackendBody"
+					value="resources/payment/refund/refund_backend.json" />
+				<Parameter name="refundBody"
+					value="resources/payment/refund/requiredField_refundNo.json" />
+			</Input>
+			<Output>
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="requiredFieldAmountTest">
+		<Datablock name="refundBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/payment.json" />
+				<Parameter name="refundBackendBody"
+					value="resources/payment/refund/refund_backend.json" />
+				<Parameter name="refundBody"
+					value="resources/payment/refund/requiredField_amount.json" />
+			</Input>
+			<Output>
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="requiredFieldStatusTest">
+		<Datablock name="refundBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/payment.json" />
+				<Parameter name="refundBackendBody"
+					value="resources/payment/refund/refund_backend.json" />
+				<Parameter name="refundBody"
+					value="resources/payment/refund/requiredField_status.json" />
+			</Input>
+			<Output>
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="invalidRefundIdTest">
+		<Datablock name="refundBody">
+			<Input>
+				<Parameter name="refundBody"
+					value="resources/payment/refund/invalid_refundId.json" />
+			</Input>
+			<Output>
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="invalidStatusTest">
+		<Datablock name="refundBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/payment.json" />
+				<Parameter name="refundBackendBody"
+					value="resources/payment/refund/refund_backend.json" />
+				<Parameter name="refundBody"
+					value="resources/payment/refund/invalid_status.json" />
+			</Input>
+			<Output>
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="invalidAmountZeroTest">
+		<Datablock name="refundBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/payment.json" />
+				<Parameter name="refundBackendBody"
+					value="resources/payment/refund/refund_backend.json" />
+				<Parameter name="refundBody"
+					value="resources/payment/refund/invalid_amount_zero.json" />
+			</Input>
+			<Output>
+				<Parameter name="total_amount" value="44.00" />	
+				<Parameter name="pay_status" value="PARTIAL_REFUNDED" />
+				<Parameter name="paid_amount" value="44.00" />
+				<Parameter name="refunded_amount" value="0.00" />
+				<Parameter name="pay_method" value="AliPay" />
+				<Parameter name="pay_amount" value="44.00" />	
+				<Parameter name="currency" value="CNY" />	
+				<Parameter name="pay_account" value="123" />
+				<Parameter name="payment_status" value="SUCCESS" />	
+				<Parameter name="trade_no" value="456" />
+				
+				<Parameter name="refund_method" value="AliPay" />
+				<Parameter name="refund_amount" value="0.00" />		
+				<Parameter name="refund_account" value="123" />
+				<Parameter name="refund_status" value="SUCCESS" />	
+				<Parameter name="refund_no" value="321" />
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="invalidAmountNegativeTest">
+		<Datablock name="refundBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/payment.json" />
+				<Parameter name="refundBackendBody"
+					value="resources/payment/refund/refund_backend.json" />
+				<Parameter name="refundBody"
+					value="resources/payment/refund/invalid_amount_negative.json" />
+			</Input>
+			<Output>
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="invalidAmountWrongTypeTest">
+		<Datablock name="refundBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/payment.json" />
+				<Parameter name="refundBackendBody"
+					value="resources/payment/refund/refund_backend.json" />
+				<Parameter name="refundBody"
+					value="resources/payment/refund/invalid_amount_wrongType.json" />
+			</Input>
+			<Output>
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="statusFailedTest">
+		<Datablock name="refundBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/payment.json" />
+				<Parameter name="refundBackendBody"
+					value="resources/payment/refund/refund_backend.json" />
+				<Parameter name="refundBody"
+					value="resources/payment/refund/status_failed.json" />
+			</Input>
+			<Output>
+				<Parameter name="total_amount" value="44.00" />	
+				<Parameter name="pay_status" value="PAID" />
+				<Parameter name="paid_amount" value="44.00" />
+				<Parameter name="refunded_amount" value="0.00" />
+				
+				<Parameter name="pay_method" value="AliPay" />
+				<Parameter name="pay_amount" value="44.00" />	
+				<Parameter name="currency" value="CNY" />	
+				<Parameter name="pay_account" value="123" />
+				<Parameter name="payment_status" value="SUCCESS" />	
+				<Parameter name="trade_no" value="456" />
+				
+				<Parameter name="refund_method" value="AliPay" />
+				<Parameter name="refund_amount" value="44.00" />		
+				<Parameter name="refund_account" value="123" />
+				<Parameter name="refund_status" value="FAILED" />	
+				<Parameter name="refund_no" value="321" />
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="statusCanceledTest">
+		<Datablock name="refundBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/payment.json" />
+				<Parameter name="refundBackendBody"
+					value="resources/payment/refund/refund_backend.json" />
+				<Parameter name="refundBody"
+					value="resources/payment/refund/status_canceled.json" />
+			</Input>
+			<Output>
+				<Parameter name="total_amount" value="44.00" />	
+				<Parameter name="pay_status" value="PAID" />
+				<Parameter name="paid_amount" value="44.00" />
+				<Parameter name="refunded_amount" value="0.00" />
+				
+				<Parameter name="pay_method" value="AliPay" />
+				<Parameter name="pay_amount" value="44.00" />	
+				<Parameter name="currency" value="CNY" />	
+				<Parameter name="pay_account" value="123" />
+				<Parameter name="payment_status" value="SUCCESS" />	
+				<Parameter name="trade_no" value="456" />
+				
+				<Parameter name="refund_method" value="AliPay" />
+				<Parameter name="refund_amount" value="44.00" />		
+				<Parameter name="refund_account" value="123" />
+				<Parameter name="refund_status" value="CANCELED" />	
+				<Parameter name="refund_no" value="321" />
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="statusPreparedTest">
+		<Datablock name="refundBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/payment.json" />
+				<Parameter name="refundBackendBody"
+					value="resources/payment/refund/refund_backend.json" />
+				<Parameter name="refundBody"
+					value="resources/payment/refund/status_prepared.json" />
+			</Input>
+			<Output>
+				<Parameter name="total_amount" value="44.00" />	
+				<Parameter name="pay_status" value="PAID" />
+				<Parameter name="paid_amount" value="44.00" />
+				<Parameter name="refunded_amount" value="0.00" />
+				
+				<Parameter name="pay_method" value="AliPay" />
+				<Parameter name="pay_amount" value="44.00" />	
+				<Parameter name="currency" value="CNY" />	
+				<Parameter name="pay_account" value="123" />
+				<Parameter name="payment_status" value="SUCCESS" />	
+				<Parameter name="trade_no" value="456" />
+				
+				<Parameter name="refund_method" value="AliPay" />
+				<Parameter name="refund_amount" value="44.00" />		
+				<Parameter name="refund_account" value="123" />
+				<Parameter name="refund_status" value="PREPARED" />	
+				<Parameter name="refund_no" value="321" />
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="invalidOauthTest">
+		<Datablock name="refundBody">
+			<Input>
+				<Parameter name="oauthBody"
+					value="resources/passport/login/oauth.json" />
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/payment.json" />
+				<Parameter name="refundBackendBody"
+					value="resources/payment/refund/refund_backend.json" />
+				<Parameter name="refundBody"
+					value="resources/payment/refund/refund.json" />
+			</Input>
+			<Output>
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="multiTenantTest">
+		<Datablock name="refundBody">
+			<Input>
+				<Parameter name="oauthBody"
+					value="resources/passport/login/oauth.json" />
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/payment.json" />
+				<Parameter name="refundBackendBody"
+					value="resources/payment/refund/refund_backend.json" />
+				<Parameter name="refundBody"
+					value="resources/payment/refund/refund.json" />
+			</Input>
+			<Output>
+			</Output>
+		</Datablock>
+	</Test>
+</Scenario>

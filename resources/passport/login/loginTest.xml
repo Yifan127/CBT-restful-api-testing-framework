@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- ================================================================= Licensed 
+	Materials - Property of IBM WebSphere Commerce (C) Copyright IBM Corp. 2009, 
+	2010 All Rights Reserved. US Government Users Restricted Rights - Use, duplication 
+	or disclosure restricted by GSA ADP Schedule Contract with IBM Corp. ================================================================= -->
+<Scenario name="loginTest">
+
+	<Test name="loginTest">
+		<Datablock name="loginBody">
+			<Input>
+				<Parameter name="loginBody"
+					value="resources/passport/login/login.json" />
+			</Input>
+			<Output>							
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="wrongUsernameTest">
+		<Datablock name="loginBody">
+			<Input>
+				<Parameter name="loginBody"
+					value="resources/passport/login/wrongUsername.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>	
+	<Test name="wrongPasswordTest">
+		<Datablock name="loginBody">
+			<Input>
+				<Parameter name="loginBody"
+					value="resources/passport/login/wrongPassword.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>	
+	<Test name="requiredFieldNameTest">
+		<Datablock name="loginBody">
+			<Input>
+				<Parameter name="loginBody"
+					value="resources/passport/login/requiredFieldUsername.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="requiredFieldPasswordTest">
+		<Datablock name="loginBody">
+			<Input>
+				<Parameter name="loginBody"
+					value="resources/passport/login/requiredFieldPassword.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="nullUsernameTest">
+		<Datablock name="loginBody">
+			<Input>
+				<Parameter name="loginBody"
+					value="resources/passport/login/nullUsername.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="nullPasswordTest">
+		<Datablock name="loginBody">
+			<Input>
+				<Parameter name="loginBody"
+					value="resources/passport/login/nullPassword.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="invalidOauthTest">
+		<Datablock name="loginBody">
+			<Input>
+				<Parameter name="oauthBody"
+					value="resources/passport/login/oauth.json" />
+				<Parameter name="loginBody"
+					value="resources/passport/login/login.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="resetPasswordTest">
+		<Datablock name="resetPasswordBody">
+			<Input>
+				<Parameter name="resetPasswordBody"
+					value="resources/passport/login/resetPassword.json" />
+			</Input>
+			<Input>
+				<Parameter name="loginBody"
+					value="resources/passport/login/login.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="resetPasswordWrongPasswordTest">
+		<Datablock name="resetPasswordBody">
+			<Input>
+				<Parameter name="resetPasswordBody"
+					value="resources/passport/login/resetPassword_wrongPassword.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="resetPasswordConfirmPasswordTest">
+		<Datablock name="resetPasswordBody">
+			<Input>
+				<Parameter name="resetPasswordBody"
+					value="resources/passport/login/resetPassword_confirmPassword.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="resetPasswordRequiredPasswordTest">
+		<Datablock name="resetPasswordBody">
+			<Input>
+				<Parameter name="resetPasswordBody"
+					value="resources/passport/login/resetPassword_requiredFieldPassword.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="resetPasswordRequiredNewPasswordTest">
+		<Datablock name="resetPasswordBody">
+			<Input>
+				<Parameter name="resetPasswordBody"
+					value="resources/passport/login/resetPassword_requiredFieldNewPassword.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="resetPasswordRequiredConfirmPasswordTest">
+		<Datablock name="resetPasswordBody">
+			<Input>
+				<Parameter name="resetPasswordBody"
+					value="resources/passport/login/resetPassword_requiredFieldConfirmPassword.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+</Scenario>
+
+

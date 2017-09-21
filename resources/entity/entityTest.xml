@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- ================================================================= Licensed 
+	Materials - Property of IBM WebSphere Commerce (C) Copyright IBM Corp. 2009, 
+	2010 All Rights Reserved. US Government Users Restricted Rights - Use, duplication 
+	or disclosure restricted by GSA ADP Schedule Contract with IBM Corp. ================================================================= -->
+<Scenario name="entityTest">
+	<Test name="setup">
+		<Datablock name="entityBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/addAddress.json" />
+			</Input>
+			<Output>
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="orderIdEqualToTest">
+		<Datablock name="entityBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+			</Input>
+			<Output>
+				<Parameter name="sourcePlatform" value="EC" />	
+				<Parameter name="channelId" value="webstore" />	
+				<Parameter name="orderStatus" value="CREATED" />	
+				<Parameter name="orderComment" value="" />	
+				<Parameter name="paymentType" value="1" />	
+				<Parameter name="shippingOriginalAmount" value="7" />	
+				<Parameter name="shippingAmount" value="7" />	
+				<Parameter name="taxAmount" value="0" />	
+				<Parameter name="totalPaymentAmount" value="45" />
+				<Parameter name="totalProductAmount" value="38" />
+				<Parameter name="totalAdjustmentAmount" value="0" />	
+				<Parameter name="currency" value="CNY" />	
+				
+				<Parameter name="address" value="上海市黄浦区科苑路399号10号楼6层" />	
+				<Parameter name="receiverName" value="张三" />	
+				<Parameter name="receiverMobile" value="15611351087" />
+				<Parameter name="countryCode" value="CN" />
+				<Parameter name="countryName" value="China" />	
+				<Parameter name="cityName" value="上海市" />	
+				<Parameter name="cityCode" value="310100" />	
+				<Parameter name="stateName" value="上海市" />
+				<Parameter name="stateCode" value="310000" />	
+				<Parameter name="postcode" value="201203" />	
+				
+				<Parameter name="unitPrice" value="38" />	
+				<Parameter name="tax" value="0" />	
+				<Parameter name="quantity" value="1" />
+				<Parameter name="uom" value="EACH" />	
+				<Parameter name="itemImageLink" value="http://7vigs7.com1.z0.glb.clouddn.com/%E6%B2%90%E6%B5%B4%E9%9C%B2115ml-full.png" />
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="getOrderByOrderIdTest">
+		<Datablock name="orderBody">
+			<Input>
+			</Input>
+			<Output>		
+				<Parameter name="orderStatus" value="CREATED" />
+				<Parameter name="orderComment" value="" />	
+				<Parameter name="paymentType" value="1" />			
+				<Parameter name="shippingAddress" value="上海市黄浦区科苑路399号10号楼6层" />			
+				<Parameter name="shippingReceiverName" value="张三" />
+				<Parameter name="shippingReceiverMobile" value="15611351087" />
+				<Parameter name="shippingReceiverPhone" value="021-60928678" />
+				<Parameter name="shippingReceiverEmail" value="" />
+				<Parameter name="shippingCountryCode" value="CN" />
+				<Parameter name="shippingCountryName" value="China" />
+				<Parameter name="shippingStateCode" value="310000" />
+				<Parameter name="shippingStateName" value="上海市" />
+				<Parameter name="shippingCityCode" value="310100" />
+				<Parameter name="shippingCityName" value="上海市" />
+				<Parameter name="shippingDistrictCode" value="310101" />
+				<Parameter name="shippingDistrictName" value="黄浦区" />
+				<Parameter name="shippingPostcode" value="201203" />				
+				<Parameter name="shippingOriginalPrice" value="6.00" />			
+				<Parameter name="shippingPrice" value="6.00" />
+				<Parameter name="taxPrice" value="0.00" />
+				<Parameter name="actualPrice" value="24.90" />
+				<Parameter name="itemsPrice" value="18.90" />
+				<Parameter name="adjustmentPrice" value="0.00" />												
+				<Parameter name="quantity" value="1" />	
+				<Parameter name="itemDisplayText" value="Dai Pai Dong大排档 3合1即溶鸳鸯 (咖啡 茶) 17克*10包" />		
+				<Parameter name="itemImageLink" value="http://7xl90w.com2.z0.glb.qiniucdn.com/102HKC14j860004_ZT11_ed1f3f9e-3c3d-45a2-b7aa-6afcbf934873.jpg" />
+				<Parameter name="unitPrice" value="18.90" />	
+				<Parameter name="tax" value="0.00" />	
+				<Parameter name="adjustment" value="0.00" />			
+				<Parameter name="processInfo" value="您提交了订单，请等待系统确认" />	
+				<Parameter name="operator" value="客户" />		
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="confirmReceivedOrderTest">
+		<Datablock name="orderBody">
+			<Input>
+				<Parameter name="orderBody"
+					value="resources/order/confirmReceivedOrder.json" />
+			</Input>
+			<Output>		
+				<Parameter name="orderStatus" value="SHIPPED" />				
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="requiredFieldCartlineIdTest">
+		<Datablock name="orderBody">
+			<Input>
+				<Parameter name="orderBody"
+					value="resources/order/requiredFieldCartlineId.json" />
+			</Input>
+			<Output>						
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="requiredFieldAddressIdTest">
+		<Datablock name="orderBody">
+			<Input>
+				<Parameter name="orderBody"
+					value="resources/order/requiredFieldAddressId.json" />
+			</Input>
+			<Output>						
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="requiredFieldOrderIdTest">
+		<Datablock name="orderBody">
+			<Input>
+			</Input>
+			<Output>						
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="nullCartlineIdTest">
+		<Datablock name="orderBody">
+			<Input>
+				<Parameter name="orderBody"
+					value="resources/order/nullCartlineId.json" />
+			</Input>
+			<Output>						
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="nullAddressIdTest">
+		<Datablock name="orderBody">
+			<Input>
+				<Parameter name="orderBody"
+					value="resources/order/nullAddressId.json" />
+			</Input>
+			<Output>						
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="nullOrderIdTest">
+		<Datablock name="orderBody">
+			<Input>
+			</Input>
+			<Output>						
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="invalidCartlineIdTest">
+		<Datablock name="orderBody">
+			<Input>
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+			</Input>
+			<Output>						
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="invalidAddressIdTest">
+		<Datablock name="orderBody">
+			<Input>
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+			</Input>
+			<Output>						
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="invalidOrderIdTest">
+		<Datablock name="orderBody">
+			<Input>
+			</Input>
+			<Output>						
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="inventoryTest">
+		<Datablock name="orderBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/order/inventory.json" />
+				<Parameter name="addressBody"
+					value="resources/address/addAddress.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+			</Input>
+			<Output>						
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="buyableTest">
+		<Datablock name="orderBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/order/buyable.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+			</Input>
+			<Output>						
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="getOrderListTest">
+		<Datablock name="orderBody">
+			<Input>
+			</Input>
+			<Output>		
+				<Parameter name="orderStatus" value="CREATED" />
+				<Parameter name="orderComment" value="" />	
+				<Parameter name="paymentType" value="1" />			
+				<Parameter name="shippingAddress" value="上海市黄浦区科苑路399号10号楼6层" />			
+				<Parameter name="shippingReceiverName" value="张三" />
+				<Parameter name="shippingReceiverMobile" value="15611351087" />
+				<Parameter name="shippingReceiverPhone" value="021-60928678" />
+				<Parameter name="shippingReceiverEmail" value="" />
+				<Parameter name="shippingCountryCode" value="CN" />
+				<Parameter name="shippingCountryName" value="China" />
+				<Parameter name="shippingStateCode" value="310000" />
+				<Parameter name="shippingStateName" value="上海市" />
+				<Parameter name="shippingCityCode" value="310100" />
+				<Parameter name="shippingCityName" value="上海市" />
+				<Parameter name="shippingDistrictCode" value="310101" />
+				<Parameter name="shippingDistrictName" value="黄浦区" />
+				<Parameter name="shippingPostcode" value="201203" />
+				<Parameter name="shippingType" value="1" />
+				<Parameter name="shippingInstruction" value="3" />						
+				<Parameter name="shippingOriginalAmount" value="6.00" />			
+				<Parameter name="shippingAmount" value="6.00" />
+				<Parameter name="taxAmount" value="0.00" />
+				<Parameter name="totalAmount" value="24.90" />
+				<Parameter name="total" value="18.90" />
+				<Parameter name="adjustmentAmount" value="0.00" />												
+				<Parameter name="currency" value="CNY" />	
+				<Parameter name="quantity" value="1" />							
+				<Parameter name="unitPrice" value="18.90" />	
+				<Parameter name="tax" value="0.00" />	
+				<Parameter name="adjustment" value="0.00" />	
+				<Parameter name="shippingAmount" value="6.00" />	
+				<Parameter name="itemType" value="item" />	
+				<Parameter name="itemPriceListId" value="offer" />		
+				<Parameter name="itemDisplayText" value="Dai Pai Dong大排档 3合1即溶鸳鸯 (咖啡 茶) 17克*10包" />
+				<Parameter name="itemImageLink" value="http://7xl90w.com2.z0.glb.qiniucdn.com/102HKC14j860004_ZT11_ed1f3f9e-3c3d-45a2-b7aa-6afcbf934873.jpg" />
+				<Parameter name="currentPage" value="1" />	
+				<Parameter name="perPage" value="20" />		
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="getOrderListShippedTest">
+		<Datablock name="orderBody">
+			<Input>
+			</Input>
+			<Output>		
+				<Parameter name="orderStatus" value="SHIPPED" />
+				<Parameter name="totolCount" value="784" />	
+				<Parameter name="currentPage" value="1" />	
+				<Parameter name="perPage" value="20" />		
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="getOrderListClosedTest">
+		<Datablock name="orderBody">
+			<Input>
+			</Input>
+			<Output>		
+				<Parameter name="orderStatus" value="CLOSED" />
+				<Parameter name="totolCount" value="552" />	
+				<Parameter name="currentPage" value="1" />	
+				<Parameter name="perPage" value="20" />		
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="getOrderListReturnCreatedTest">
+		<Datablock name="orderBody">
+			<Input>
+			</Input>
+			<Output>		
+				<Parameter name="orderStatus" value="RETURN_CREATED" />
+				<Parameter name="totolCount" value="2" />	
+				<Parameter name="currentPage" value="1" />	
+				<Parameter name="perPage" value="20" />		
+			</Output>
+		</Datablock>
+	</Test>
+</Scenario>

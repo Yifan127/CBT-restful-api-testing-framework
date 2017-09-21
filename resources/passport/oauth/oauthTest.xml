@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- ================================================================= Licensed 
+	Materials - Property of IBM WebSphere Commerce (C) Copyright IBM Corp. 2009, 
+	2010 All Rights Reserved. US Government Users Restricted Rights - Use, duplication 
+	or disclosure restricted by GSA ADP Schedule Contract with IBM Corp. ================================================================= -->
+<Scenario name="oauthTest">
+	<Test name="oauthTest">
+		<Datablock name="oauthBody">
+			<Input>
+				<Parameter name="oauthBody"
+					value="resources/passport/oauth/oauth.json" />
+			</Input>
+			<Output>		
+				<Parameter name="token_type" value="Bearer" />	
+				<Parameter name="scope" value="default" />						
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="invalidOauthTest">
+		<Datablock name="oauthBody">
+			<Input>
+				<Parameter name="oauthBody"
+					value="resources/passport/oauth/invalid_oauth.json" />
+			</Input>
+			<Output>							
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="invalidGrantTypeTest">
+		<Datablock name="oauthBody">
+			<Input>
+				<Parameter name="oauthBody"
+					value="resources/passport/oauth/invalid_grantType.json" />
+			</Input>
+			<Output>							
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="nullGrantTypeTest">
+		<Datablock name="oauthBody">
+			<Input>
+				<Parameter name="oauthBody"
+					value="resources/passport/oauth/null_grantType.json" />
+			</Input>
+			<Output>							
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="nullClientIdTest">
+		<Datablock name="oauthBody">
+			<Input>
+				<Parameter name="oauthBody"
+					value="resources/passport/oauth/null_clientId.json" />
+			</Input>
+			<Output>							
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="nullclientSecretTest">
+		<Datablock name="oauthBody">
+			<Input>
+				<Parameter name="oauthBody"
+					value="resources/passport/oauth/null_clientSecret.json" />
+			</Input>
+			<Output>							
+			</Output>
+		</Datablock>
+	</Test>
+</Scenario>
+
+

@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- ================================================================= Licensed 
+	Materials - Property of IBM WebSphere Commerce (C) Copyright IBM Corp. 2009, 
+	2010 All Rights Reserved. US Government Users Restricted Rights - Use, duplication 
+	or disclosure restricted by GSA ADP Schedule Contract with IBM Corp. ================================================================= -->
+<Scenario name="paymentTest">
+	<Test name="setup">
+		<Datablock name="paymentBody">
+			<Input>
+				<Parameter name="addressBody"
+					value="resources/address/addAddress.json" />
+			</Input>
+			<Output>
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="paymentTest">
+		<Datablock name="paymentBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/payment.json" />
+			</Input>
+			<Output>
+				<Parameter name="total_amount" value="44.00" />	
+				<Parameter name="pay_status" value="PAID" />
+				<Parameter name="paid_amount" value="44.00" />
+				<Parameter name="refunded_amount" value="0.00" />
+				<Parameter name="pay_method" value="AliPay" />
+				<Parameter name="amount" value="44.00" />	
+				<Parameter name="currency" value="CNY" />	
+				<Parameter name="pay_account" value="123" />
+				<Parameter name="status" value="SUCCESS" />	
+				<Parameter name="trade_no" value="456" />
+				
+				<Parameter name="orderStatus" value="PAID" />
+				<Parameter name="paymentType" value="AliPay" />
+				
+				<Parameter name="payAmount" value="44.00" />
+				<Parameter name="paymentMethod" value="AliPay" />
+						
+				<Parameter name="creatorId" value="用户" />	
+				<Parameter name="description1" value="用户创建订单" />
+				<Parameter name="description2" value="用户支付订单" />
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="getPaymentTest">
+		<Datablock name="paymentBody">
+			<Input>
+			</Input>
+			<Output>
+				<Parameter name="total_amount" value="44.00" />	
+				<Parameter name="pay_status" value="PAID" />
+				<Parameter name="paid_amount" value="44.00" />
+				<Parameter name="refunded_amount" value="0.00" />
+				<Parameter name="pay_method" value="AliPay" />
+				<Parameter name="amount" value="44.00" />	
+				<Parameter name="currency" value="CNY" />	
+				<Parameter name="pay_account" value="123" />
+				<Parameter name="status" value="SUCCESS" />	
+				<Parameter name="trade_no" value="456" />
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="paymentPartialTest">
+		<Datablock name="paymentBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody1"
+					value="resources/payment/payment/paymentPartial1.json" />
+				<Parameter name="paymentBody2"
+					value="resources/payment/payment/paymentPartial2.json" />
+			</Input>
+			<Output>
+				<Parameter name="total_amount" value="44.00" />	
+				<Parameter name="pay_status1" value="PARTIAL_PAID" />
+				<Parameter name="paid_amount1" value="1.00" />
+				<Parameter name="refunded_amount" value="0.00" />
+				<Parameter name="pay_method" value="AliPay" />
+				<Parameter name="amount1" value="1.00" />	
+				<Parameter name="currency" value="CNY" />	
+				<Parameter name="pay_account" value="123" />
+				<Parameter name="status" value="SUCCESS" />	
+				<Parameter name="trade_no1" value="456" />				
+				<Parameter name="orderStatus1" value="CREATED" />
+				
+				<Parameter name="pay_status2" value="PAID" />
+				<Parameter name="paid_amount2" value="44.00" />
+				<Parameter name="amount2" value="43.00" />
+				<Parameter name="trade_no2" value="789" />	
+				
+				<Parameter name="payAmount" value="44.00" />
+				<Parameter name="paymentMethod" value="AliPay" />
+				
+				<Parameter name="orderStatus2" value="PAID" />
+				<Parameter name="paymentType" value="AliPay" />
+						
+				<Parameter name="creatorId" value="用户" />	
+				<Parameter name="description1" value="用户创建订单" />
+				<Parameter name="description2" value="用户支付订单" />
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="getPaymentPartialTest">
+		<Datablock name="paymentBody">
+			<Input>
+			</Input>
+			<Output>
+				<Parameter name="total_amount" value="44.00" />	
+                <Parameter name="pay_status" value="PAID" />
+				<Parameter name="paid_amount" value="44.00" />
+				<Parameter name="refunded_amount" value="0.00" />
+				<Parameter name="pay_method" value="AliPay" />
+				<Parameter name="amount1" value="1.00" />	
+				<Parameter name="currency" value="CNY" />	
+				<Parameter name="pay_account" value="123" />
+				<Parameter name="status" value="SUCCESS" />	
+				<Parameter name="trade_no1" value="456" />				
+				<Parameter name="orderStatus1" value="CREATED" />
+				
+				
+				<Parameter name="amount2" value="43.00" />
+				<Parameter name="trade_no2" value="789" />	
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="paymentExceedTest">
+		<Datablock name="paymentBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/paymentExceed.json" />
+			</Input>
+			<Output>
+				<Parameter name="total_amount" value="44.00" />	
+				<Parameter name="pay_status" value="PAID" />
+				<Parameter name="paid_amount" value="44.01" />
+				<Parameter name="refunded_amount" value="0.00" />
+				<Parameter name="pay_method" value="AliPay" />
+				<Parameter name="amount" value="44.01" />	
+				<Parameter name="currency" value="CNY" />	
+				<Parameter name="pay_account" value="123" />
+				<Parameter name="status" value="SUCCESS" />	
+				<Parameter name="trade_no" value="456" />
+				
+				<Parameter name="orderStatus" value="PAID" />
+				<Parameter name="paymentType" value="AliPay" />
+				
+				<Parameter name="payAmount" value="44.00" />
+				<Parameter name="paymentMethod" value="AliPay" />
+						
+				<Parameter name="creatorId" value="用户" />	
+				<Parameter name="description1" value="用户创建订单" />
+				<Parameter name="description2" value="用户支付订单" />
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="requiredFieldOrderIdTest">
+		<Datablock name="paymentBody">
+			<Input>
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/requiredField_orderId.json" />
+			</Input>
+			<Output>
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="requiredFieldBuyerIdTest">
+		<Datablock name="paymentBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/requiredField_buyerId.json" />
+			</Input>
+			<Output>
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="requiredFieldPayMethodTest">
+		<Datablock name="paymentBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/requiredField_payMethod.json" />
+			</Input>
+			<Output>
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="requiredFieldAmountTest">
+		<Datablock name="paymentBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/requiredField_amount.json" />
+			</Input>
+			<Output>
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="requiredFieldStatusTest">
+		<Datablock name="paymentBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/requiredField_status.json" />
+			</Input>
+			<Output>
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="requiredFieldTradeNoTest">
+		<Datablock name="paymentBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/requiredField_tradeNo.json" />
+			</Input>
+			<Output>
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="optionFieldPayAccountTest">
+		<Datablock name="paymentBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/optionField_payAccount.json" />
+			</Input>
+			<Output>
+				<Parameter name="total_amount" value="44.00" />	
+				<Parameter name="pay_status" value="PAID" />
+				<Parameter name="paid_amount" value="44.00" />
+				<Parameter name="refunded_amount" value="0.00" />
+				<Parameter name="pay_method" value="AliPay" />
+				<Parameter name="amount" value="44.00" />	
+				<Parameter name="currency" value="CNY" />	
+				<Parameter name="status" value="SUCCESS" />	
+				<Parameter name="trade_no" value="456" />
+				
+				<Parameter name="orderStatus" value="PAID" />
+				<Parameter name="paymentType" value="AliPay" />
+				
+				<Parameter name="payAmount" value="44.00" />
+				<Parameter name="paymentMethod" value="AliPay" />
+				<Parameter name="state" value="SUCCESS" />
+						
+				<Parameter name="creatorId" value="用户" />	
+				<Parameter name="description1" value="用户创建订单" />
+				<Parameter name="description2" value="用户支付订单" />
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="invalidOrderIdTest">
+		<Datablock name="paymentBody">
+			<Input>
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/invalid_orderId.json" />
+			</Input>
+			<Output>
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="invalidBuyerIdTest">
+		<Datablock name="paymentBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/invalid_buyerId.json" />
+			</Input>
+			<Output>
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="invalidPayMethodTest">
+		<Datablock name="paymentBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/invalid_payMethod.json" />
+			</Input>
+			<Output>
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="invalidAmountZeroTest">
+		<Datablock name="paymentBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/invalid_amount_zero.json" />
+			</Input>
+			<Output>
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="invalidAmountNegativeTest">
+		<Datablock name="paymentBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/invalid_amount_negative.json" />
+			</Input>
+			<Output>
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="invalidAmountWrongTypeTest">
+		<Datablock name="paymentBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/invalid_amount_wrongType.json" />
+			</Input>
+			<Output>
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="invalidStatusTest">
+		<Datablock name="paymentBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/invalid_status.json" />
+			</Input>
+			<Output>
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="invalidTradeNoTest">
+		<Datablock name="paymentBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/payment.json" />
+			</Input>
+			<Output>
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="statusFailedTest">
+		<Datablock name="paymentBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/status_failed.json" />
+			</Input>
+			<Output>
+				<Parameter name="total_amount" value="44.00" />	
+				<Parameter name="pay_status" value="UNPAID" />
+				<Parameter name="paid_amount" value="0.00" />
+				<Parameter name="refunded_amount" value="0.00" />
+				<Parameter name="pay_method" value="AliPay" />
+				<Parameter name="amount" value="44.00" />	
+				<Parameter name="currency" value="CNY" />	
+				<Parameter name="pay_account" value="123" />
+				<Parameter name="status" value="FAILED" />	
+				<Parameter name="trade_no" value="456" />
+				
+				<Parameter name="orderStatus" value="CREATED" />
+				<Parameter name="paymentType" value="" />
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="statusCanceledTest">
+		<Datablock name="paymentBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/status_canceled.json" />
+			</Input>
+			<Output>
+				<Parameter name="total_amount" value="44.00" />	
+				<Parameter name="pay_status" value="UNPAID" />
+				<Parameter name="paid_amount" value="0.00" />
+				<Parameter name="refunded_amount" value="0.00" />
+				<Parameter name="pay_method" value="AliPay" />
+				<Parameter name="amount" value="44.00" />	
+				<Parameter name="currency" value="CNY" />	
+				<Parameter name="pay_account" value="123" />
+				<Parameter name="status" value="CANCELED" />	
+				<Parameter name="trade_no" value="456" />
+				
+				<Parameter name="orderStatus" value="CREATED" />
+				<Parameter name="paymentType" value="" />
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="statusPreparedTest">
+		<Datablock name="paymentBody">
+			<Input>
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/status_prepared.json" />
+			</Input>
+			<Output>
+				<Parameter name="total_amount" value="44.00" />	
+				<Parameter name="pay_status" value="UNPAID" />
+				<Parameter name="paid_amount" value="0.00" />
+				<Parameter name="refunded_amount" value="0.00" />
+				<Parameter name="pay_method" value="AliPay" />
+				<Parameter name="amount" value="44.00" />	
+				<Parameter name="currency" value="CNY" />	
+				<Parameter name="pay_account" value="123" />
+				<Parameter name="status" value="PREPARED" />	
+				<Parameter name="trade_no" value="456" />
+				
+				<Parameter name="orderStatus" value="CREATED" />
+				<Parameter name="paymentType" value="" />
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="invalidOauthTest">
+		<Datablock name="paymentBody">
+			<Input>
+				<Parameter name="oauthBody"
+					value="resources/passport/login/oauth.json" />
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/payment.json" />
+			</Input>
+			<Output>
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="multiTenantTest">
+		<Datablock name="paymentBody">
+			<Input>
+				<Parameter name="oauthBody"
+					value="resources/passport/login/oauth.json" />
+				<Parameter name="cartBody"
+					value="resources/cart/addToCart.json" />
+				<Parameter name="orderBody"
+					value="resources/order/submitOrder.json" />
+				<Parameter name="paymentBody"
+					value="resources/payment/payment/payment.json" />
+			</Input>
+			<Output>
+			</Output>
+		</Datablock>
+	</Test>
+</Scenario>

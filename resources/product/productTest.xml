@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- ================================================================= Licensed 
+	Materials - Property of IBM WebSphere Commerce (C) Copyright IBM Corp. 2009, 
+	2010 All Rights Reserved. US Government Users Restricted Rights - Use, duplication 
+	or disclosure restricted by GSA ADP Schedule Contract with IBM Corp. ================================================================= -->
+<Scenario name="ProductTest">
+	<Test name="getProductByProductIdTest">
+		<Datablock name="productBody">
+			<Input>
+			</Input>
+			<Output>		    				
+				<Parameter name="type" value="Product" />	
+				<Parameter name="partNumber" value="1000810001" />	
+				<Parameter name="manufactureName" value="Bveeno有限公司" />	
+				<Parameter name="name" value="Bveeno婴儿洗发沐浴露二合一" />				
+				<Parameter name="shortDescription" value="Bveeno婴儿洗发沐浴露二合一" />
+				<Parameter name="imageLink" value="http://7vigs7.com1.z0.glb.clouddn.com/%E6%B2%90%E6%B5%B4%E9%9C%B2115ml-full.png" />		
+				<Parameter name="parentId" value="" />	
+				
+				<Parameter name="definingId" value="规格" />		
+				<Parameter name="definingName" value="规格" />		
+				<Parameter name="displayValue1" value="115ml" />	
+				<Parameter name="displayValue2" value="354ml" />
+				
+				<Parameter name="categoryId" value="母婴沐浴露" />	
+				<Parameter name="categorypath1" value="沐浴露" />	
+				
+				<Parameter name="countryId" value="" />		
+				<Parameter name="countryName" value="" />	
+				<Parameter name="brandName" value="Bveeno" />	
+
+				<Parameter name="descriptiveId1" value="适用人群" />		
+				<Parameter name="descriptiveName1" value="适用人群" />		
+				<Parameter name="descriptiveValue1" value="婴儿" />	
+				<Parameter name="descriptiveId2" value="主要成分" />
+				<Parameter name="descriptiveName2" value="主要成分" />		
+				<Parameter name="descriptiveValue2" value="水，甘油，燕麦提取物等" />	
+				<Parameter name="descriptiveId3" value="存储条件" />
+				<Parameter name="descriptiveName3" value="存储条件" />		
+				<Parameter name="descriptiveValue3" value="常温避光" />
+				<Parameter name="descriptiveId4" value="产地" />
+				<Parameter name="descriptiveName4" value="产地" />		
+				<Parameter name="descriptiveValue4" value="常温避光" />
+			</Output>
+		</Datablock>
+	</Test>	
+	<Test name="getProductByItemIdTest">
+		<Datablock name="productBody">
+			<Input>
+			</Input>
+			<Output>		    				
+				<Parameter name="type" value="Item" />	
+				<Parameter name="manufactureName" value="Bveeno有限公司" />	
+				<Parameter name="name" value="Bveeno婴儿洗发沐浴露二合一115ml" />				
+				<Parameter name="shortDescription" value="Bveeno婴儿洗发沐浴露二合一115ml" />
+				<Parameter name="longDescription" value="" />		
+				
+				<Parameter name="definingId" value="规格" />		
+				<Parameter name="definingName" value="规格" />		
+				<Parameter name="displayValue" value="115ml" />	
+				<Parameter name="image" value="" />	
+				
+				<Parameter name="categoryId" value="母婴沐浴露" />	
+				<Parameter name="categorypath1" value="沐浴露" />	
+				
+				<Parameter name="countryId" value="" />		
+				<Parameter name="countryName" value="" />	
+				<Parameter name="brandName" value="Bveeno" />	
+
+				<Parameter name="descriptiveId1" value="Sales-Weight" />		
+				<Parameter name="descriptiveName1" value="重量" />		
+				<Parameter name="descriptiveValue1" value="115" />	
+				<Parameter name="descriptiveId2" value="Sales-WeightUOM" />
+				<Parameter name="descriptiveName2" value="重量单位" />		
+				<Parameter name="descriptiveValue2" value="克" />	
+			</Output>
+		</Datablock>
+	</Test>	
+	<Test name="getProductRealTimeTest">
+		<Datablock name="productBody">
+			<Input>
+			</Input>
+			<Output>
+				<Parameter name="inventory" value="1000" />	
+			</Output>
+		</Datablock>
+	</Test>	
+	<Test name="getProductByIdsTest">
+		<Datablock name="productBody">
+			<Input>	
+			</Input>
+			<Output>
+				<Parameter name="type1" value="Item" />		
+				<Parameter name="name1" value="Bveeno婴儿洗发沐浴露二合一115ml" />		 
+				<Parameter name="shortDescription1" value="Bveeno婴儿洗发沐浴露二合一115ml" />	
+				<Parameter name="manufactureName1" value="Bveeno有限公司" />
+							
+				<Parameter name="type2" value="Item" />		
+				<Parameter name="name2" value="SODITHO妈妈身体按摩油354ml" />	
+				<Parameter name="shortDescription2" value="SODITHO妈妈身体按摩油354ml" />	
+				<Parameter name="manufactureName2" value="SODITHO母婴产品有限公司" />	 
+				<Parameter name="partNumber2" value="1000920002" />	
+			    <Parameter name="listPrice2" value="153.00" />					
+				<Parameter name="offerPrice2" value="90.00" />	
+				<Parameter name="salesPrice2" value="64.00" />	
+				<Parameter name="currency2" value="CNY" />
+				<Parameter name="imageLink2" value="http://7vigs7.com1.z0.glb.clouddn.com/%E5%A6%88%E5%A6%88%E6%B2%B9115ml-full.png" />
+				<Parameter name="buyable2" value="1" />
+			</Output>
+		</Datablock>
+	</Test>	
+	<Test name="getProductByIdsMaxTest">
+		<Datablock name="productBody">
+			<Input>
+			    <Parameter name="itemIds" value="3708781528617433559|4487663571118799836|7655250803546507086|8317933831630787089|1695045162463242038|6666132360152078689|4412294591061265757|2146875979167582481|8857836722676950701|4260984419074754946|857701352967454427|5902650510526479031|2356333043674788505|6460381708406586190|3197394966133270387|1410476907682007732|7080298861623787209|8315672491485214163|6820044711486793354|6158318241102936967|1261907547327724386|7439603802442506631|5966366479797734188|3382354659864516799|2334586007842420579|3756474816244868251|2497450949550197901|1217651186868194503|6945171583074724447|3200174837423962917|3640953608692699577|8041333060083734364|618564839642971248|4635337328253631339|2585914709076665971|725304888312445704|1923934124889092877|8074885490637924580|8784134429030564494|2508548142338455363|6112275640828206210|5074618154177078481|6390629247468638354|6053193245669719695|7195019790649507372|9145799857484439609|3101219369903647256|1448599843709444192|680496971494515531|4190433237020018560" />	
+			</Input>
+			<Output>
+			</Output>
+		</Datablock>
+	</Test>	
+	<Test name="getProductByIdsBoundaryTest">
+		<Datablock name="productBody">
+			<Input>
+			    <Parameter name="itemIds" value="3708781528617433559|4487663571118799836|7655250803546507086|8317933831630787089|1695045162463242038|6666132360152078689|4412294591061265757|2146875979167582481|8857836722676950701|4260984419074754946|857701352967454427|5902650510526479031|2356333043674788505|6460381708406586190|3197394966133270387|1410476907682007732|7080298861623787209|8315672491485214163|6820044711486793354|6158318241102936967|1261907547327724386|7439603802442506631|5966366479797734188|3382354659864516799|2334586007842420579|3756474816244868251|2497450949550197901|1217651186868194503|6945171583074724447|3200174837423962917|3640953608692699577|8041333060083734364|618564839642971248|4635337328253631339|2585914709076665971|725304888312445704|1923934124889092877|8074885490637924580|8784134429030564494|2508548142338455363|6112275640828206210|5074618154177078481|6390629247468638354|6053193245669719695|7195019790649507372|9145799857484439609|3101219369903647256|1448599843709444192|680496971494515531|4190433237020018560|4564742789819693522" />	
+			</Input>
+			<Output>
+			</Output>
+		</Datablock>
+	</Test>	
+	<Test name="invalidOauthTest">
+		<Datablock name="productBody">
+			<Input>
+				<Parameter name="oauthBody"
+					value="resources/passport/login/oauth.json" />
+			</Input>
+			<Output>								
+			</Output>
+		</Datablock>
+	</Test>
+	<Test name="multiTenantTest">
+		<Datablock name="productBody">
+			<Input>
+				<Parameter name="oauthBody"
+					value="resources/passport/login/oauth.json" />
+			</Input>
+			<Output>															
+			</Output>
+		</Datablock>
+	</Test>
+</Scenario>

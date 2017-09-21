@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- ================================================================= Licensed 
+	Materials - Property of IBM WebSphere Commerce (C) Copyright IBM Corp. 2009, 
+	2010 All Rights Reserved. US Government Users Restricted Rights - Use, duplication 
+	or disclosure restricted by GSA ADP Schedule Contract with IBM Corp. ================================================================= -->
+<Scenario name="shipmentTest">
+	<Test name="getShipProviderTest">
+		<Datablock name="shipmentBody">
+			<Input>
+			</Input>
+			<Output>			
+				<Parameter name="name" value="圆通快递" />
+				<Parameter name="sequence" value="1" />	
+				<Parameter name="isDefault" value="1" />	
+			</Output>
+		</Datablock>
+	</Test>
+</Scenario>
+
+
